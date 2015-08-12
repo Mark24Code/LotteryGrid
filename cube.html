@@ -49,6 +49,9 @@
     }
     .xui-lottery-unit.active{
     	background-color:#FFFF01;
+		box-shadow: 0 0 10px #FFFF01;
+		-webkit-box-shadow: 0 0 5px #FFFF01;
+		-moz-box-shadow: 0 0 5px #FFFF01;
     }
     .xui-lottery_footer{
     	margin: 20px;
@@ -135,14 +138,10 @@
 			$(lottery).find(".xa-lottery-unit-"+index).removeClass("active");
 			index += 1;
 			if(index>count){
-				console.log('index',index);
-				console.log('count-1,count',count)
 				index = 0;
 			};
 			$(lottery).find(".xa-lottery-unit-"+index).addClass("active");
 			this.index=index;
-
-			console.log(index);
 			return false;
 			
 		},
@@ -193,7 +192,7 @@
 
 	var click = false;
 	window.onload = function(){
-		console.log("抽奖开始");
+		console.log("准备就绪");
 		lottery.init("lottery");
 		$(".xa-lottery-go").click(function(){
 			if(click){

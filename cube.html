@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>9宫格转盘</title>
+    <style type="text/css">
+
+    body{
+    	background: #EE0070;
+    }
+    .xui-lottery_title p {
+    	font-size: 3em;
+    	text-align: center;
+    	color: #EDFF2F;
+    }
+    .xui-lottery_subtitle p {
+    	font-size: 1.5em;
+    	text-align: center;
+    	color: #FFFEFD;
+    	
+    }
+    .xui-lottery_desc p{
+    	text-align: center;
+    	color: #FFFEFD;
+    }
+    .xui-lottery{
+    	margin: 20px;
+    }
+    table{
+    	background: red;
+    	height: 580px;
+    	width: 580px;
+    	margin-left: auto;
+    	margin-right: auto;
+
+    }
+    table td{
+    	height: 144px;
+    	width: 146px;
+    	background: blue;
+    	text-align: center;
+    	color: #FFFEFD; 
+    }
+    .xui-lottery-unit .xa-lottery-unit img{
+    	height: 142px;
+    	width: 142px;
+    	margin: auto;
+    	opacity: 0.2;
+    }
+    .xui-lottery-unit.active{
+    	background-color:#FFFF01;
+    }
+    .xui-lottery_footer{
+    	margin: 20px;
+    }
+    .xui-lottery_footer_content p {
+    	color: #FFFEFD;
+    }
+    .xa-lottery-go{
+    	background: red;
+    }
+    </style>
+</head>
+<body>
+<div class="xui-lottery_title_div">
+	<div class="xui-lottery_title"><p>活动标题</p></div>
+	<div class="xui-lottery_subtitle"><p>活动副标题</p></div>
+</div>
+<div class="xui-lottery_desc">
+	<div class="xui-lottery_date"><p>活动时间：2015.05.26-2015.06.26</p></div>
+	<div class="xui-lottery_times"><p>你还有<span class="xui-lottery_num">1</span>次抽奖机会！</p></div>
+</div>
+
+<div class="xui-lottery" id="lottery">
+<table>
+	<tr>
+		<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-0"><img src="" alt="0"></td>
+		<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-1"><img src="" alt="1"></td>
+		<td class="xui-lottery-unit xa-lottery-unit  xa-lottery-unit xa-lottery-unit-2"><img src="" alt="2"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-3"><img src="" alt="3"></td>
+	</tr>
+	<tr>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-11"><img src="" alt="11"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-go" colspan="2" rowspan="2"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-4"><img src="" alt="4"></td>
+	</tr>
+	<tr>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-10"><img src="" alt="10"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-5"><img src="" alt="5"></td>
+	</tr>
+	<tr>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-9"><img src="" alt="9"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-8"><img src="" alt="8"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-7"><img src="" alt="7"></td>
+		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-6"><img src="" alt="6"></td>
+	</tr>
+
+</table>
+<div class="xui-lottery_footer">
+	<div class="xui-lottery_footer_content">
+		<p>1.刮刮乐可以得到一定额度的红包</p>
+		<p>2.每当分享时……</p>
+		<p>3.红包额度，巴拉巴拉吧啦</p>
+		<p>4.使用红包请下载1.2.0</p>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	var lottery={
+		index:-1,
+		count: 0,
+		timer: 0,
+		speed:20,
+		times: 0,
+		cycle:50,
+		prize:-1,
+
+		init:function(id){
+			if($("#"+id).find(".xa-lottery-unit").length>0){
+				$lottery = $("#"+id);
+				$units = $lottery.find(".xa-lottery-unit");
+
+				this.obj = $lottery;
+				this.count = $units.length;
+
+				$lottery.find(".xa-lottery-unit-"+this.index).addClass("active");
+			};
+		},
+		move:function(){
+			var index = this.index;
+			var count = this.count;
+			var lottery = this.obj;
+			$(lottery).find(".xa-lottery-unit-"+index).removeClass("active");
+			index += 1;
+			if(index>count){
+				console.log('index',index);
+				console.log('count-1,count',count)
+				index = 0;
+			};
+			$(lottery).find(".xa-lottery-unit-"+index).addClass("active");
+			this.index=index;
+
+			console.log(index);
+			return false;
+			
+		},
+		stop:function(index){
+			this.prize = index;
+			return false;
+		}
+	};
+
+	function roll(){
+		lottery.times += 1;
+		lottery.move();
+		if (lottery.times > lottery.cycle+10 && lottery.prize == lottery.index){
+			//end
+			clearTimeout(lottery.timer);
+			lottery.prize = -1;
+			lottery.times = 0;
+			click = false;
+		}else{
+
+			if(lottery.times < lottery.cycle){
+				lottery.speed -= 10;
+			}else if(lottery.times == lottery.cycle){
+				var index = R(lottery);
+				lottery.prize = index;
+			}else{
+				if(lottery.times > lottery.cycle+10 && ((lottery.prize == 0 && lottery.index == 7) || lottery.prize == lottery.index+1)){
+					lottery.speed += 10;
+				}else{
+					lottery.speed += 20;
+				}
+			}
+			if(lottery.speed<40){
+				lottery.speed = 40;
+			}
+
+			lottery.timer = setTimeout(roll,lottery.speed);
+		}
+
+		return false;
+	}
+
+	function R(lottery){
+		//random 前段or后端
+		 var obj = lottery;
+		 return Math.random()*(obj.count)|0;
+	}
+
+	var click = false;
+	window.onload = function(){
+		console.log("抽奖开始");
+		lottery.init("lottery");
+		$(".xa-lottery-go").click(function(){
+			if(click){
+				return false;
+			}else{
+				lottery.speed = 100;
+				roll();
+				click = true;
+				return false;
+			}
+		});
+	}
+</script>
+</body>
+</html>

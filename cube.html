@@ -27,11 +27,12 @@
     	margin: 20px;
     }
     table{
-    	background: red;
+    	background: #6F2023;
     	height: 580px;
     	width: 580px;
     	margin-left: auto;
     	margin-right: auto;
+    	padding: 18px;
 
     }
     table td{
@@ -40,6 +41,17 @@
     	background: blue;
     	text-align: center;
     	color: #FFFEFD; 
+	    border: 5px;
+	    -moz-border-radius: 10px;      /* Gecko browsers */
+	    -webkit-border-radius: 10px;   /* Webkit browsers */
+	    border-radius:10px;            /* W3C syntax */
+
+    }
+    .xa-lottery-go{
+    	color: #FFCF3D;
+    	font-size: 3em;
+    	font-weight: bold;
+    	text-align: center;
     }
     .xui-lottery-unit .xa-lottery-unit img{
     	height: 142px;
@@ -75,38 +87,40 @@
 </div>
 
 <div class="xui-lottery" id="lottery">
-<table>
-	<tr>
-		<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-0"><img src="" alt="0"></td>
-		<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-1"><img src="" alt="1"></td>
-		<td class="xui-lottery-unit xa-lottery-unit  xa-lottery-unit xa-lottery-unit-2"><img src="" alt="2"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-3"><img src="" alt="3"></td>
-	</tr>
-	<tr>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-11"><img src="" alt="11"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-go" colspan="2" rowspan="2"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-4"><img src="" alt="4"></td>
-	</tr>
-	<tr>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-10"><img src="" alt="10"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-5"><img src="" alt="5"></td>
-	</tr>
-	<tr>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-9"><img src="" alt="9"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-8"><img src="" alt="8"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-7"><img src="" alt="7"></td>
-		<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-6"><img src="" alt="6"></td>
-	</tr>
+	<table>
+		<tr>
+			<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-0"><img src="" alt="0"></td>
+			<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-1"><img src="" alt="1"></td>
+			<td class="xui-lottery-unit xa-lottery-unit  xa-lottery-unit xa-lottery-unit-2"><img src="" alt="2"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-3"><img src="" alt="3"></td>
+		</tr>
+		<tr>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-11"><img src="" alt="11"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-go" colspan="2" rowspan="2"><a>点击抽奖</a></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-4"><img src="" alt="4"></td>
+		</tr>
+		<tr>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-10"><img src="" alt="10"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-5"><img src="" alt="5"></td>
+		</tr>
+		<tr>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-9"><img src="" alt="9"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-8"><img src="" alt="8"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-7"><img src="" alt="7"></td>
+			<td class="xui-lottery-unit xa-lottery-unit xa-lottery-unit-6"><img src="" alt="6"></td>
+		</tr>
 
-</table>
-<div class="xui-lottery_footer">
-	<div class="xui-lottery_footer_content">
-		<p>1.刮刮乐可以得到一定额度的红包</p>
-		<p>2.每当分享时……</p>
-		<p>3.红包额度，巴拉巴拉吧啦</p>
-		<p>4.使用红包请下载1.2.0</p>
-	</div>
+	</table>
 </div>
+
+<div class="xui-lottery_footer">
+		<div class="xui-lottery_footer_content">
+			<p>1.刮刮乐可以得到一定额度的红包</p>
+			<p>2.每当分享时……</p>
+			<p>3.红包额度，巴拉巴拉吧啦</p>
+			<p>4.使用红包请下载1.2.0</p>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript" src="jquery-1.8.3.min.js"></script>

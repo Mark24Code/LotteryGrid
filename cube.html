@@ -31,6 +31,9 @@
     }
     .xui-lottery-border{
     	height: 664px;
+    	width: 664px;
+    	margin-left: auto;
+    	margin-right: auto;
     	background: green;
 	    display: -webkit-box;
 	    display: -moz-box;
@@ -234,6 +237,7 @@
 		//random 前段or后端
 		 var obj = lottery;
 		 return Math.random()*(obj.count)|0;
+		 // return 7
 	}
 
 	var click = false;

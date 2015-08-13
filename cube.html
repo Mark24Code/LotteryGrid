@@ -17,24 +17,25 @@
     	font-size: 1.5em;
     	text-align: center;
     	color: #FFFEFD;
-    	
     }
     .xui-lottery_desc p{
     	text-align: center;
     	color: #FFFEFD;
     }
     .xui-lottery{
-    	margin: 20px;
+    	margin: 5px;
     }
     #lottery{
     	position: relative;
     }
     .xui-lottery-border{
-    	height: 664px;
-    	width: 664px;
+    	height: calc(70px * 4 + 6px + 50px);
+    	width: calc(70px * 4 + 6px + 40px);
     	margin-left: auto;
     	margin-right: auto;
-    	background: green;
+    	padding: 2px;
+    	position: relative;
+    	background: #6F2023;
 	    display: -webkit-box;
 	    display: -moz-box;
 	    display: -ms-flexbox;
@@ -47,21 +48,21 @@
     }
     table{
     	background: #6F2023;
-    	height: 580px;
-    	width: 580px;
+		height: calc(70px * 4 + 6px);
+    	width: calc(70px * 4 + 6px);
     	margin-left: auto;
     	margin-right: auto;
     }
     table td{
-    	height: 144px;
-    	width: 146px;
+    	height: 70px;
+    	width:70px;
     	background: blue;
     	text-align: center;
     	color: #FFFEFD; 
-	    border: 5px;
-	    -moz-border-radius: 10px;      /* Gecko browsers */
-	    -webkit-border-radius: 10px;   /* Webkit browsers */
-	    border-radius:10px;            /* W3C syntax */
+	    border: 2.5px;
+	    -moz-border-radius: 5px;      /* Gecko browsers */
+	    -webkit-border-radius: 5px;   /* Webkit browsers */
+	    border-radius:5px;            /* W3C syntax */
 
     }
     .xa-lottery-go{
@@ -71,10 +72,9 @@
     	text-align: center;
     }
     .xui-lottery-unit .xa-lottery-unit img{
-    	height: 142px;
-    	width: 142px;
+    	height: 70px - 2px;
+    	width: 70px - 2px;
     	margin: auto;
-    	opacity: 0.2;
     }
     .xui-lottery-unit.active{
     	background-color:#FFFF01;
@@ -95,15 +95,83 @@
 	.xui-circle { 
 		width: 15px; 
 		height: 15px; 
+		position: absolute;
+		z-index: 9999;
 		background: #FEFF01; 
 		-moz-border-radius: 7.5px; 
 		-webkit-border-radius: 7.5px; 
 		border-radius: 7.5px; 
 	}
 
+	.xa-circle.active{
+    	background-color:#FFFF01;
+		box-shadow: 0 0 10px #FFFF01;
+		-webkit-box-shadow: 0 0 5px #FFFF01;
+		-moz-box-shadow: 0 0 5px #FFFF01;
+	}
 	.xa-circle-unit-0{
-		position: absolute;
-		z-index: 9999;
+		top:1.5%;
+		left: 1%;
+	}
+	.xa-circle-unit-1{
+		top:1.5%;
+		left: 26%;
+	}
+	.xa-circle-unit-2{
+		top:1.5%;
+		left: 48%;
+	}
+	.xa-circle-unit-3{
+		top:1.5%;
+		left: 70%;
+	}
+	.xa-circle-unit-4{
+		top:1.5%;
+		left: 95%;
+	}
+	.xa-circle-unit-5{
+		top: 26%;
+		left: 95%;
+	}
+	.xa-circle-unit-6{
+		top: 48%;
+		left: 95%;
+	}
+	.xa-circle-unit-7{
+		top: 70%;
+		left: 95%;
+	}
+	.xa-circle-unit-8{
+		top: 94%;
+		left: 95%;
+	}
+	.xa-circle-unit-9{
+		top: 95%;
+		left: 70%;
+	}
+	.xa-circle-unit-10{
+		top: 95%;
+		left: 48%;
+	}
+	.xa-circle-unit-11{
+		top: 95%;
+		left: 26%;
+	}
+	.xa-circle-unit-12{
+		top: 95%;
+		left: 1%;
+	}
+	.xa-circle-unit-13{
+		top: 70%;
+		left: 1%;
+	}
+	.xa-circle-unit-14{
+		top: 48%;
+		left: 1%;
+	}
+	.xa-circle-unit-15{
+		top: 26%;
+		left: 1%;
 	}
 
     </style>
@@ -122,6 +190,22 @@
 <div class="xui-lottery" id="lottery">
 	<div class="xui-lottery-border" id="lottery-border">
 		<div class="xui-circle xa-circle xa-circle-unit-0"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-1"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-2"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-3"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-4"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-5"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-6"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-7"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-8"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-9"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-10"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-11"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-12"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-13"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-14"></div>
+		<div class="xui-circle xa-circle xa-circle-unit-15"></div>
+
 		<table>
 			<tr>
 				<td class="xui-lottery-unit xui-lottery-unit xa-lottery-unit-0"><img src="" alt="0"></td>
@@ -169,8 +253,14 @@
 		cycle:50,
 		prize:-1,
 
+		light_index:-1,
+		light_count:0,
+		light_speed:100,
+		lights_timer:0,
+
 		init:function(id){
 			if($("#"+id).find(".xa-lottery-unit").length>0){
+				//lottery
 				$lottery = $("#"+id);
 				$units = $lottery.find(".xa-lottery-unit");
 
@@ -178,9 +268,14 @@
 				this.count = $units.length;
 
 				$lottery.find(".xa-lottery-unit-"+this.index).addClass("active");
+
+				//lights
+				$light_units = $lottery.find(".xui-circle");
+				this.light_count = $light_units.length;
 			};
 		},
 		move:function(){
+			//lottery
 			var index = this.index;
 			var count = this.count;
 			var lottery = this.obj;
@@ -191,11 +286,22 @@
 			};
 			$(lottery).find(".xa-lottery-unit-"+index).addClass("active");
 			this.index=index;
+
+			//lights
+			var light_index = this.light_index;
+			var light_count = this.light_count;
+			$(lottery).find(".xa-circle-unit-"+light_index).removeClass("active");
+			light_index += 1;
+			if(light_index>light_count){
+				light_index = 0;
+			};
+			$(lottery).find(".xa-circle-unit-"+light_index).addClass("active");
+			this.light_index=light_index;
 			return false;
-			
 		},
 		stop:function(index){
 			this.prize = index;
+			console.log("抽奖停止");
 			return false;
 		}
 	};
@@ -204,10 +310,11 @@
 		lottery.times += 1;
 		lottery.move();
 		if (lottery.times > lottery.cycle+10 && lottery.prize == lottery.index){
-			//end
+			//end_lottery
 			clearTimeout(lottery.timer);
 			lottery.prize = -1;
 			lottery.times = 0;
+			console.log('抽奖结束');
 			click = false;
 		}else{
 
@@ -228,11 +335,11 @@
 			}
 
 			lottery.timer = setTimeout(roll,lottery.speed);
+
 		}
 
 		return false;
 	}
-
 	function R(lottery){
 		//random 前段or后端
 		 var obj = lottery;

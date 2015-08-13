@@ -306,7 +306,7 @@
 		}
 	};
 
-	function roll(){
+	function roll(obj){
 		lottery.times += 1;
 		lottery.move();
 		if (lottery.times > lottery.cycle+10 && lottery.prize == lottery.index){
@@ -315,6 +315,8 @@
 			lottery.prize = -1;
 			lottery.times = 0;
 			console.log('抽奖结束');
+			$("#lottery").find(".xa-circle").removeClass("active");
+			$("#lottery").find(".xa-circle").addClass("active");
 			click = false;
 		}else{
 
